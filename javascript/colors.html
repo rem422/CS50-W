@@ -6,41 +6,33 @@
     <title>Colors</title>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.queryselectorAll('button')
-            const red = document.querySelector('#red');
-            const blue = document.querySelector('#blue');
-            const green = document.querySelector('#green');
-            const reset = document.querySelector('#reset');
-            const heading = document.querySelector('#hello');
+        document.addEventListener('DOMContentLoaded', () => {
 
-            // Change the heading color to red when a button is clicked.
-            red.onclick = () => {
-                heading.style.color = 'red';
+            document.querySelector('select').onchange = function() {
+                document.querySelector('#hello').style.color = this.value
             }
 
-            // Change the heading color to blue when a button is clicked.
-            blue.onclick = () => {
-                heading.style.color = 'blue';
-            }
+            // document.querySelectorAll('button').forEach((button) => {
+            //     button.onclick = () => {
+            //         document.querySelector('#hello').style.color = button.dataset.color;
+            //     }
+            // });
 
-            // Change the heading color to green when a button is clicked.
-            green.onclick = () => {
-                heading.style.color = 'green';
-            }
-            
-            // Reset the heading color to black when the reset button is clicked.
-            reset.onclick = () => {
-                heading.style.color = 'black';
-            }
         });
     </script>
 </head>
 <body>
     <h1 style="font-size: 60px;" id="hello">Hello!</h1>
-    <button data-color="red">Red</button>
+    <select>
+        <option value="black">Black</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+    </select>
+
+    <!-- <button data-color="red">Red</button>
     <button data-color="blue">Blue</button>
     <button data-color="green">Green</button>
-    <button data-color="reset">Reset</button>
+    <button data-color="black">Reset</button> -->
 </body>
 </html>
