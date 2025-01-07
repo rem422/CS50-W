@@ -4,33 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currency Exchange</title>
-    <Script>
-        document.addEventListener('DOMContentLoaded', function() {
-
-            documet.querySelector('form').addEventListener('submit', function(event) {
-
-                fetch('https://api.exchangeratesapi.io/latest?base=USD')
-                .then(response => response.json())
-                .then(data => {
-                    const currency = documennt.querySelector('#currency').value.toUpperCase();
-                    const rate = data.rates[currency];
-
-                    if(rate !== undefined) {
-                        document.querySelector('#result').innerHTML = `1 USD is equal to ${rate.toFixed()} ${currency}.`;
-                    } else {
-                        document.querySelector('#result').innerHTML = 'Invalid currency.';
-                    }
-
-                })
-                .catch(error => {
-                    console.log('Error:', error);
-                    
-                });
-
-                return false;
-            });
-        });
-    </Script>
 </head>
 <body>
     <div id="result"></div>
@@ -38,5 +11,6 @@
         <input id="currency" placeholder="Currency" type="text">
         <input type="Submit" value="convert">
     </form>
+    <script src="currency.js"></script>
 </body>
 </html>
